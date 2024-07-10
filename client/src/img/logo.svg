@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362.93 115.4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-size: 66px;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: CenturyGothic-Bold, 'Century Gothic';
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-size: 99px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #ef4534;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(0 85.04)"><tspan x="0" y="0">Tauar</tspan></text>
+  <rect class="cls-3" x="273.93" y="7.19" width="89" height="89" rx="15.22" ry="15.22"/>
+  <text class="cls-1" transform="translate(281.06 76.78)"><tspan x="0" y="0">KZ</tspan></text>
+</svg>
