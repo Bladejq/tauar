@@ -1,0 +1,71 @@
+create table session(sid text primary key, sess json, expire timestamp with time zone);
+
+
+user table 
+///////////////
+create table users (
+id serial primary key, 
+email varchar(50) not null unique, 
+password text not null, 
+firstname varchar(50) not null, 
+lastname varchar(50) not null
+);
+
+product table
+/////////////
+create table products (
+id serial primary key, 
+title varchar(50) not null unique, 
+description text, 
+price numeric(12,2) not null, 
+category varchar(50) not null, 
+thumbnail text not null, 
+brand varchar(50) not null, 
+images text[] default '{}',
+stock integer default 1, 
+rating numeric(3, 2) default 0, 
+discount_percentage numeric(4,2) default 0
+);
+
+user_cart table
+////////////////////////
+CREATE TABLE user_cart (                                                                                
+id SERIAL PRIMARY KEY,
+user_id INT NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+cart_product table
+///////////////////
+CREATE TABLE cart_product ( 
+cart_id INT NOT NULL,  
+product_id INT NOT NULL,     
+quantity INT NOT NULL default 1,        
+PRIMARY KEY (cart_id, product_id),       
+FOREIGN KEY (cart_id) REFERENCES user_cart(id),   
+FOREIGN KEY (product_id) REFERENCES products(id)           
+);
+
+order_table
+///////////////////
+CREATE TABLE orders ( 
+id SERIAL PRIMARY KEY, 
+user_id INT NOT NULL, 
+order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+address text, 
+delivery_time  TIMESTAMP,
+payment_method varchar(50),
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+order_details table
+///////////////////
+CREATE TABLE order_details (
+order_id INT NOT NULL, 
+product_id INT NOT NULL, 
+quantity INT NOT NULL default 1, 
+PRIMARY KEY (order_id, product_id), 
+FOREIGN KEY (order_id) REFERENCES orders(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
+);
